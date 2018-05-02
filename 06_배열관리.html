@@ -6,6 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>배열관리</title>
+  <style media="screen">
+    table,
+    tr,    /*여러개를 묶을때*/
+    td {
+      border: 1px solid red;
+    }
+    .a1{color:red;}
+    .a2{color:blue;}
+    .a3{color:green;}
+    .a4{color:yellow;}
+    .a5{color:pink;}
+
+  </style>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
     $(function() {
@@ -17,14 +30,44 @@
     });
 
     $(function() {
-      var students = [{name:'이름', grade:'학년', ban:'반', kor:'국어', eng:'영어', math:'수학'},
-                      {name:'홍성진', grade:'4', ban:'2', kor:'100', eng:'100', math:'100'},
-                      {name:'감스트', grade:'1', ban:'1', kor:'80', eng:'70', math:'90'},
-                      {name:'손흥민', grade:'3', ban:'10', kor:'90', eng:'20', math:'30'}];
-        var temp='';
+      var students = [{
+          name: '이름',
+          grade: '학년',
+          ban: '반',
+          kor: '국어',
+          eng: '영어',
+          math: '수학'
+        },
+        {
+          name: '홍성진',
+          grade: '4',
+          ban: '2',
+          kor: '100',
+          eng: '100',
+          math: '100'
+        },
+        {
+          name: '감스트',
+          grade: '1',
+          ban: '1',
+          kor: '80',
+          eng: '70',
+          math: '90'
+        },
+        {
+          name: '손흥민',
+          grade: '3',
+          ban: '10',
+          kor: '90',
+          eng: '20',
+          math: '30'
+        }
+      ];
+      var temp = '';
       $.each(students, function(index, item) {
-         temp += 
-        $('#stu1').html(temp + item);
+        temp += "<tr>" + "<td>" + item.name + "</td>" + "<td>" + item.grade + "</td>" + "<td>" + item.ban + "</td>" + "<td>" + item.kor + "</td>" + "<td>" + item.eng + "</td>" + "<td>" + item.math + "</td>" + "</tr>";
+        console.log(temp);
+        $('#stu2').html(temp + item);
       });
 
       //객체배열
@@ -43,11 +86,39 @@
       ];
       var output = '';
       $.each(obj, function(index, item) {
-          output+="<h2><a href=" + item.link + '>' + item.name + '</a></h2>';
-        });
+        output += "<h2><a href=" + item.link + '>' + item.name + '</a></h2>';
+      });
       $('#area1').html(output);
 
     });
+
+    var studentss = new Array();
+    var temp='';
+    function insert() {
+      var value = [{
+        name: prompt('이름'),
+        grade: prompt('학년'),
+        ban: prompt('반'),
+        kor: prompt('국어점수'),
+        math: prompt('수학점수'),
+        eng: prompt('영어점수')
+      }];
+      studentss.push(value);
+      console.log(studentss);
+      $(function() {
+        $.each(value, function(index, item) {
+          temp += "<tr>" + "<td>" + item.name + "</td>" +
+            "<td>" + item.grade + "</td>" +
+            "<td>" + item.ban + "</td>" +
+            "<td>" + item.kor + "</td>" +
+            "<td>" + item.math + "</td>" +
+            "<td>" + item.eng + "</td>" +
+            "</tr>";
+          console.log(temp);
+          $('#stu3').html(temp + item);
+        });
+      });
+    }
   </script>
 </head>
 
@@ -63,10 +134,51 @@
   <div id='area1'></div>
   <br>
   <div id='stu2'>
-      <table id='tab'>
-
-      </table>
+    <table id='tab'>
+    </table>
   </div>
+  <br>
+  <br>
+  <br>
+  <div id='stu3'>
+    <table id='tab'>
+    </table>
+  </div>
+  <button type="button" name="button" onclick='insert()'>삽입</button>
+
+  <h1>선택자 선택 후 each사용하기</h1>
+  <p>
+    방식 : $(선택자).each(funciton(index,item{}));
+  </p>
+  <div id='cho'>
+    <h1>item-1</h1>
+    <h1>item-2</h1>
+    <h1>item-3</h1>
+    <h1>item-4</h1>
+    <h1>item-5</h1>
+  </div>
+  <br>
+  <button type="button" name="button" onclick="change1()">변경</button>
+  <script type="text/javascript">
+        function change1() {
+          $('#cho').children().each(function(index,item){  //간단한 반복문개념.
+            $(this).addClass("a"+(index+1));    //클래스를 부여한다.item은 #cho의 자손들.
+          });
+        }
+  </script>
+
+  <h1>exten메소드</h1>
+  <p>
+      객체를 합칠떄 사용
+  </p>
+  <script type="text/javascript">
+      $(function(){
+          var obj={name:'홍성진',age:19};  //객체랑 배열이랑 헷갈리면안댐
+          console.log(obj);
+          $.extend(obj,{job:'강사'});
+          console.log(obj);
+      })
+  </script>
 
 </body>
 

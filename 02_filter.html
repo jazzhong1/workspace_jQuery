@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="jquery-3.3.1.min.js"></script>
+
+
+  <!--Uncaught ReferenceError: $ is not defined-->
+  <title></title>
+
+    <script type="text/javascript">
+        $(function(){
+            $('h4').filter(':even').css({"background":"tomato","color":"white"});
+                        //홀수//
+            $('h4').filter(function(index){
+                return index%2==1;    //배열이기떄문에 나머지가 1.
+            }).css({"background":"green","color":"white"});
+            $('h4').first().css('font-size','30px');
+            $('h4').last().css('font-size','30px');
+            $('h4').eq().css({"background":"black","color":"white"});
+            $('h4').not('.test').css({"background":"skyblue","color":"white"});
+                        //class이기때문에.로접근
+        });
+    </script>
+</head>
+
+<body>
+  <h1>필터링 메소드</h1>
+  <h3>filter 메소드 사용</h3>
+  <p>필터메소드를 사용해 문서객체를 선택가능</p>
+  <h4 class='test'>test-1</h4>
+  <h4 class='test'>test-2</h4>
+  <h4 class='test'>test-3</h4>
+  <h4 class='test'>test-4</h4>
+  <h4 class=''>test-5</h4>
+
+
+</body>
+
+</html>

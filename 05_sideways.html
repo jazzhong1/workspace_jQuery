@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>descendants</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(function(){
+          //siblings
+          // $('h2').siblings('p').css({'color':'blue','border':'blue','border':'2px solid red'});
+          //자기자신가 선택된 동등레벨에 있는 형제만 적용 siblings();
+
+          //next() 선택자를 기준으로 다음에 나오는 요소 선택
+          // $('span').next().css({'color':'brown','border':'red','border':'2px solid pink'})
+
+          //nextAll() 선택자를 기준으로 다음에 나오는 모든요소 선택
+          // $('span').nextAll().css({'color':'brown','border':'red','border':'2px solid pink'})
+          // $('p').nextUntil("h2").css({'color':'brown','border':'red','border':'2px solid pink'})
+
+          //prev()는 선택자를 기준으로 앞에나오는 형제요소를 선택
+          // $('h2').prev().css({'color':'purple','border':'2px solid red'});
+
+          //prevAll()는 선택자를 기준으로 앞에나오는 형제요소를모든선택
+          // $('h2').prevAll().css({'color':'purple','border':'2px solid red'});
+
+          //prevUntil()는 선택자를 기준으로 앞에나오는 형제요소w중 이전요소를 선택
+          // $('h2').prevUntil().css({'color':'purple','border':'2px solid red'}
+
+          console.log($('h2').siblings().is('p'));
+
+          if($('h2').siblings().is('p')){
+            $('h2').siblings('p').css({'color':'purple','border':'2px solid red'});
+          }
+
+      });
+    </script>
+  </head>
+  <body>
+
+      <h1>siblings</h1>
+      <p>
+        같은 노드(형제)에 위치한 요소를 선택하는것 siblings(요소) 매개변수와 일치하는 형제요소선택
+      </p>
+
+      <div class='wrap'>
+      <p>p 야</p>
+      <span>span이야</span>
+      <p>p1이야</p>
+      <h2>h2야</h2>
+      <h3>h3이야</h3>
+      </div>
+
+  </body>
+</html>

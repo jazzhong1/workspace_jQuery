@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>배열관리</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      var basic = ["유병승", 19, "경기도시흥"];
+      $.each(basic, function(index, item) {
+        var temp = $('#area').html() + "<br />";
+        $('#area').html(temp + item);
+      });
+    });
+
+    $(function() {
+      var students = [{name:'이름', grade:'학년', ban:'반', kor:'국어', eng:'영어', math:'수학'},
+                      {name:'홍성진', grade:'4', ban:'2', kor:'100', eng:'100', math:'100'},
+                      {name:'감스트', grade:'1', ban:'1', kor:'80', eng:'70', math:'90'},
+                      {name:'손흥민', grade:'3', ban:'10', kor:'90', eng:'20', math:'30'}];
+        var temp='';
+      $.each(students, function(index, item) {
+         temp += 
+        $('#stu1').html(temp + item);
+      });
+
+      //객체배열
+      var obj = [{
+          name: '네이버',
+          link: 'http://www.naver.com'
+        },
+        {
+          name: '구글',
+          link: 'http://www.google.com'
+        },
+        {
+          name: '다음',
+          link: 'http://www.daum.net'
+        }
+      ];
+      var output = '';
+      $.each(obj, function(index, item) {
+          output+="<h2><a href=" + item.link + '>' + item.name + '</a></h2>';
+        });
+      $('#area1').html(output);
+
+    });
+  </script>
+</head>
+
+<body>
+  <h1>each메소드</h1>
+  <p>
+    형식 : $.each(배열명,function(index,item){}) index : 배열의 인덱스 / item : 값(객체면 .통해 재접근)
+  </p>
+  <div id='area'></div>
+  <br>
+  <div id='stu1'></div>
+  <br>
+  <div id='area1'></div>
+  <br>
+  <div id='stu2'>
+      <table id='tab'>
+
+      </table>
+  </div>
+
+</body>
+
+</html>

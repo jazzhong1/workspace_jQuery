@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style media="screen">
+    .item{
+         width:100px;
+         height:100px;
+         display:inline-block;
+         margin : 5px 5px 0px 0px;
+         text-align:center;
+         line-height:100px;
+         background-color:yellowgreen;
+    }
+    .item span
+    {
+        font-size:24px;
+        font-weight:bold;
+        color:white;
+    }
+    .lime
+    {
+        background-color : lime;
+    }
+    .added
+    {
+        color:palegreen;
+    }
+    .box
+    {
+        width:100px;
+        height:100px;
+        padding:5px 10px 15px 10px;
+        margin:10px;
+    }
+    #remove-test
+    {
+        border:2px solid red;
+    }
+    #result
+    {
+        border:2px dashed blue;
+    }
+ </style>
+ <script type="text/javascript">
+     $(function(){
+       var txt1="<p>Text1</p>";
+       var txt2=$('<p></p>').html("안녕");  //여러가지 응용가능.
+       var node1=document.createElement('p');
+        var textno=document.createTextNode('감스트');
+        node1.appendChild(textno);
+       $('#area1').append(node1);
+
+     });
+ </script>
+</head>
+<body>
+ <h1>객체생성 및 제거</h1>
+ <h3>객체 생성</h3>
+ <div id='area1'></div>
+ <script>
+
+ </script>
+</body>
+</html>

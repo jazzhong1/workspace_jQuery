@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>클래스추가</title>
+  <style media="screen">
+    .extra {
+      background-color: black;
+      color: white;
+      width: 100px;
+      height: 100px;
+    }
+
+    .a0 {
+      color: aqua;
+    }
+
+    .a1 {
+      color: pink;
+    }
+
+    .a2 {
+      color: purple;
+    }
+
+    .a3 {
+      color: greenyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>클래스추가</h1>
+  <div id='add'></div>
+  <p>test0</p>
+  <p>test1</p>
+  <p>test2</p>
+  <p>test3</p>
+  <p>test4</p>
+  <p>test5</p>
+  <div id='add2'></div>
+  <span>span0</span>
+  <span>span1</span>
+  <span>span2</span>
+  <span>span3</span>
+  <br>
+  <button type="button" name="button" onclick='test()'>추가</button>
+  <button type="button" name="button" onclick='removecl()'>삭제</button>
+  <button type="button" name="button" onclick='test2()'>함수로추가</button>
+  <button type="button" name="button" onclick='removecl2()'>함수로삭제</button>
+  <button type="button" name="button" onclick='tocl()'>토글</button>
+  <button type="button" name="button" onclick='toclf()'>토글함수</button>
+
+  <script type="text/javascript">
+    function test() {
+      $('#add').addClass('extra');
+    }
+
+    function removecl() {
+      $('#add').removeClass('extra');
+    }
+    function test2() {
+      $('p').addClass(function(n){  //p태그 하나하나의 번호. 즉 갯수마다 달라진다.
+        return 'a'+n;
+      });
+    }
+    function removecl2() {
+      $('p').removeClass(function(n){  //p태그 하나하나 번호를 리턴 반복문 개념.
+        console.log(n);
+        return 'a'+n;
+      });
+    }
+    function tocl() {
+      $('#add2').toggleClass('extra');
+    }
+
+    function toclf() {
+      $('span').toggleClass(function(n){
+        return 'a'+n;
+      });
+    }
+    
+    $(function(){
+           setInterval(function(){
+               toclf();
+               tocl();
+           },1000)
+       });
+
+  </script>
+</body>
+
+</html>

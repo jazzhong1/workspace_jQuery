@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>effect효과</title>
+</head>
+
+<body>
+  <h1>보여주고 숨기기</h1>
+  <img id='item1' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7bG3XCjODFuq4pTlznlDtmn3GmKrtfS5dpxmWr2Rr8sLCnJ06" alt="">
+  <br>
+  <button id='show'>보여주기</button>
+  <button id='hidden'>숨기기</button>
+  <hr>
+  <script type="text/javascript">
+    $(function() {
+      $('#show').click(function() {
+        $('#item1').show(10000);    //인자값이 밀리세컨으로 보여주는속도
+      });
+
+      $('#hidden').click(function() {
+        $('#item1').hide(500);  //인자값이 밀리세컨으로 지워지는속도
+      });
+    })
+  </script>
+
+</body>
+
+</html>

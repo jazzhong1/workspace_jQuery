@@ -80,6 +80,7 @@
         <td></td>
       </tr>
     </table>
+    <span id='result'></span>
   </form>
   <script type="text/javascript">
   $(function(){
@@ -106,7 +107,7 @@
                 $('#pwdresult').html('비밀번호 일치').css('color','green');
             }
         });
-        $('form').submit(function(event){  //window객체 
+        $('form').submit(function(event){  //window객체
             //기본이벤트제거
             if(!confirm("홈을 전송하시겠습니까?"))
             {

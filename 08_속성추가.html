@@ -8,9 +8,9 @@
     <title>속성추가하기</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <style>
-        img{
+        /* img{
             width:200px;height:200px;
-        }
+        } */
     </style>
 </head>
 <body>
@@ -21,9 +21,11 @@
         속성값이 설정되어있지 않은 경우!! uindefined!!!
     </p>
     <br>
-    <img src='http://www.visualdive.com/wp-content/uploads/2016/08/tn-5.jpg'>
-    <br><img src='https://cdn.mirror.wiki/http://www.urinews.org/imgdata/urinews_org/201106/2011063053117908.jpg'>
-    <br><img  src="https://img1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/liveboard/interparkplay/66deccc885ed48e2bf54107337b118a1.png">
+    <img width='200'src='http://www.visualdive.com/wp-content/uploads/2016/08/tn-5.jpg'>
+    <br>
+    <img width='200' src='https://cdn.mirror.wiki/http://www.urinews.org/imgdata/urinews_org/201106/2011063053117908.jpg'>
+    <br>
+    <img  width='200' src="https://img1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/liveboard/interparkplay/66deccc885ed48e2bf54107337b118a1.png">
     <br>
     <button onclick='test()'>실행</button>
     <button onclick='changeSize()'>변경</button>
@@ -48,9 +50,9 @@
         function changeSize()
         {
             console.log('들어오니?');
-            $('img').attr('width',function(n,v)
+            $('img').attr('width',function(n,v)  // css에 style에 정의할경우 변경되지않고 inline에서만 적용된다.
             {
-                console.log(v);
+                console.log(n);
                 console.log(typeof(v));
                 return parseInt(v)-10;
             });

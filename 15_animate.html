@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script> -->
+    <script src="jquery-ui.js"></script>
+
+
+    <title>에니메이션적용</title>
+      <style media="screen">
+        .test{
+          width: 200px;
+          height:200px;
+          background-color: orangered;
+        }
+        .image{
+          position: relative;
+        }
+        #scroller{
+          width: 155px;
+          height: 105px;
+          margin:auto;
+          overflow: hidden;
+          position: relative;
+        }
+      </style>
+      <script type="text/javascript">
+          $(function(){
+
+            $('button[name=btn1]').click(function() {
+              $('#test1').animate({'width':'500px',
+                                  'background-color':'green'}
+                                  ,1000
+                                  ,function() {
+                                  alert('애니메이션끝');
+
+              });
+            });
+
+            $('.image').click(function(event){    //내부함수에서 쓸떄 event를 쓸수있다.
+                  $(this).animate({left:'1000px'},'fast',function() {  //event..없어도된다..        우측으로 -이면 왼쪽으로.
+                      alert('끝');
+                  });
+            });
+
+          });
+
+
+      </script>
+  </head>
+  <body>
+    <h1>에니메이션</h1>
+    <p>에니메이션효과를 주기위한 메소드의 집합</p>
+    <h3>메소드 : animation()</h3>
+    <p>animaion(변경값(css), duration, easing, callback)</p>
+    <p>변경값 : 객체로전달</p>
+    <pre>변경값 : 객체로전달
+         duration : 밀리세컨드,
+         easing : swing(시작끝 느리고 중간 빠름), linear</pre>
+    <br>
+    <div id='test1' class='test'></div>
+    <button name='btn1'>실행</button>
+    <br>
+    <br>
+    <div id='scroller'>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRudq_J1-iYvjtJvpnhWlAf9u5lwTtuO33mQ9Uc1U77e7vK39yGwA" alt="" width='150px' height="100px" class='image'>
+    </div>
+  </body>
+</html>

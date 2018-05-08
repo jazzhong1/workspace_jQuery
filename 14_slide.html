@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>슬라이드</title>
+  <style media="screen">
+    div {
+      width: 300px;
+      height: 30px;
+      background-color: yellowgreen;
+      color: white;
+      border-radius: 10px;
+      border: 1px solid green;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    p {
+      border: 1px solid lightgreen;
+      width: 300px;
+      height: 200px;
+      display: none;
+      /*자리도 차지하지않고 보이지도않음*/
+    }
+  </style>
+  <script type="text/javascript">
+    // $(‘s’).slideDown / slideUp / slideToggle ([시간],[구간별속도],[callback]);
+    $(function() {
+      $('div').click(function() {
+        $(this).next().slideToggle(3, function() {
+          alert('토글실행!')
+        });
+      });
+    });
+
+    $(function() {
+      $('#in').click(function() {
+        $('img').fadeIn(1000);
+      });
+
+      $('#out').click(function() {
+        $('img').fadeOut(1000);
+      });
+
+      $('#toggle').click(function() {
+        $('img').fadeToggle(1000, function() {
+          alert('새창열기');
+        });
+      });
+
+      $('#fadeto').click(function() {
+          $('#img2').fadeTo(1000,0.4);
+          //시간도와 투명도를 매개변수(0~1)사이 1이 제일진함.
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <h1>slide메소드</h1>
+  <div> 첫번째메뉴
+    <p>첫번쨰 내용</p>
+  </div>
+
+  <div> 두번째메뉴
+    <p>두번쨰 내용</p>
+  </div>
+
+  <div> 세번째메뉴
+    <p>세번쨰 내용</p>
+  </div>
+
+  <div> 네번째메뉴
+    <p>네번쨰 내용</p>
+  </div>
+  <hr>
+
+  <h1>fadeIn fadeOut fadeToggle</h1>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwP7CDEU60PGHmMA9-gECHCJkJbTfb1DF1xpNISIeR4Z_R8AzbXw" alt="">
+  <br>
+  <button id='in'>fade-In</button>
+  <button id='out'>fade-out</button>
+  <button id='toggle'>fade-Toggle</button>
+  <hr>
+  <h1>fadeTo</h1>
+  <img id='img2' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlQN_C6tsx8rXSsGmu1HIy-PgkwQxxuqmndICBHE7WWjFVRFFkPQ" alt="">
+  <button id='fadeto'>fade-To</button>
+
+
+
+
+</body>
+
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js"> </script>
+    <title>슬라이드</title>
+    <style>
+        div{
+            width:300px;height:30px;
+            background-color:yellowgreen;
+            color:white;
+            border-radius:10px;
+            text-align:center;
+            border:1px solid green;
+            cursor:pointer;
+       }
+       p{
+           border:1px solid lightgreen;
+           width:300px;
+           height:200px;
+           display:none;
+       }
+    </style>
+</head>
+<body>
+    <div>첫번째 메뉴</div>
+    <p>첫번째 내용</p>
+    <div>두번째 메뉴</div>
+    <p>두번째 내용</p>
+    <div>세번째 메뉴</div>
+    <p>세번째 내용</p>
+    <div>네번째 메뉴</div>
+    <p>네번째 내용</p>
+    <script>
+        $(function(){
+            $('div').click(function(){
+                //$(this).next().slideDown();
+                //$(this).next().slideUp();
+                $(this).next().slideToggle(3000,function(){
+                    alert("토글실행!");
+                });
+            });
+
+        });
+    </script>
+    <h1>fade-in fade-out fade-To</h1>
+    <h2>fade-in fade-out</h2>
+    <img src="http://cfile7.uf.tistory.com/image/24283C3858F778CA2EFABE">
+    <button id='in'>fade-In</button>
+    <button id='out'>fade-out</button>
+    <button id='toggle'>fade-toggle</button>
+    <script>
+        $(function(){
+            $('#in').click(
+                function()
+                {
+                    $('img').fadeIn(1000);
+                });
+            $('#out').click(
+                function()
+                {
+                    $('img').fadeOut(1000);
+                });
+            $('#toggle').click(
+                function()
+                {
+                    $('img').fadeToggle(1000,function(){
+                        alert("새창열기!");
+                    });
+                }
+            );
+        });
+    </script>
+    <h2>fadeTo</h2>
+    <p>투명도를 조정해주는 메소드</p>
+    <img id='To' src="http://cfile7.uf.tistory.com/image/24283C3858F778CA2EFABE">
+    <script>
+        $(function(){
+            $('#To').hover(
+                function()
+                {
+                    $(this).fadeTo(700,1);
+                    //시간과 투명도((옅음)0~1(진함))를 매개변수로 받음
+                },
+                function()
+                {
+                    $(this).fadeTo(700,0.4);
+                }
+            );
+        });
+    </script>
+    <style>
+        #To
+        {
+            opacity:0.4;
+        }
+    </style>
+
+</body>
+</html>-->
